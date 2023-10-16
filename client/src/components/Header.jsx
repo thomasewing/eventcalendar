@@ -1,7 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const Header = ({holiday}) => {
+    const navigate = useNavigate(); 
+
+    const handleEventList = () => {
+        if (holiday) {
+            navigate(`/eventtracker/${holiday}/eventlist`);
+        }
+    };
+
     return (
     <header>
         <div className="navbar">
@@ -11,7 +19,7 @@ const Header = ({holiday}) => {
             <div className="navbar-right">
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/eventlist">Events</Link></li>
+                    <li><a onClick={handleEventList}>Events</a></li>
                     <li><Link to="/addevent">Add Event</Link></li>
                 </ul>
             </div>
