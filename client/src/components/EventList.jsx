@@ -7,6 +7,7 @@ const EventList = (props) => {
     const { holiday } = useParams();
     const navigate = useNavigate(); 
     const [ events, setEvents ] = useState([]);
+    const [ event, setEvent ] = useState(null);
 
     // const events = [
     //     { id: 1, title: 'Hayride' },
@@ -21,9 +22,10 @@ const EventList = (props) => {
             .catch( err => console.log(err) )
     }, [])
 
-    const clickHandler = () => {
-        navigate('/eventtracker')
-    }
+    const eventDetailsHandler = (id) => {
+        navigate(`/eventtracker/${holiday}/eventdetails/${id}`);
+    };
+
 
     const deleteHandler = (id) => {
         axios
@@ -43,7 +45,7 @@ return (
             {events.map((event, index) => (
             <div key={event._id} className="event-item">
                 <h2>{event.name}</h2>
-                <button className='details-btn' onClick={ () => clickHandler}>Details</button>
+                <button className='details-btn' onClick={ () => eventDetailsHandler(event._id)}>Details</button>
                 <button className='delete-btn' onClick={ () => deleteHandler(event._id)}>Delete</button>
             </div>
         ))}

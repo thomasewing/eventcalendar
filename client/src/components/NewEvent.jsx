@@ -13,6 +13,7 @@ export default function NewEvent() {
     const [ category, setCategory ] = useState("");
     const [ rating, setRating ] = useState(0);
     const [ errors, setErrors ] = useState([]);
+    
 
 
     const submitHandler = e => {

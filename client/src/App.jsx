@@ -6,6 +6,7 @@ import EventTrackerHome from './components/EventTrackerHome';
 import EventTracker from './components/EventTracker';
 import EventList from './components/EventList';
 import NewEvent from './components/NewEvent';
+import ViewEvent from './components/ViewEvent';
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
           <Route path="/eventtracker/:holiday" element={<EventTracker holiday={holiday} setHoliday={setHoliday} />} />
           <Route path="/eventtracker/:holiday/eventlist" element={<EventList holiday={holiday} setHoliday={setHoliday} />} />
           <Route path="/eventtracker/:holiday/newevent" element={<NewEvent holiday={holiday} setHoliday={setHoliday} />} />
-          <Route path="/eventtracker/:holiday/eventdetails/:id" element={<NewEvent holiday={holiday} setHoliday={setHoliday} />} />
+          <Route path="/eventtracker/:holiday/eventdetails/:id" element={<ViewEvent holiday={holiday} setHoliday={setHoliday} />} />
           <Route path="/eventtracker/:holiday/updateevent/:id" element={<NewEvent holiday={holiday} setHoliday={setHoliday} />} />
         </Routes>
       </BrowserRouter>
