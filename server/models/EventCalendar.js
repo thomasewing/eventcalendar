@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const EventCalendarSchema = new mongoose.Schema({
     name:{
         type: String,
-        required: [true, "Artist is required"]
+        required: [true, "Event Name is required"],
+        min: [3, "Address must be 3 or more characters"]
     },
     address:{
         type: String,
-        required: [true, "Venue is required"]
+        required: [true, "Address is required"],
+        min: [6, "Address must be 6 or more characters"]
     },
     date:{
         type: Date,
@@ -15,15 +17,17 @@ const EventCalendarSchema = new mongoose.Schema({
     },
     category:{
         type: String,
-        required: [true, "Genre is required"]
+        required: [true, "Category is required"],
+        min: [3, "Address must be 3 or more characters"]
     },
     rating: {
         type: Number,
-        required: [true, "Rating is required"]
+        required: [true, "Rating is required"],
+        min: [1, "Address must be 1 or more characters"]
     },
     notes: {
         type: String,
-        maxLength: [50, "Notes cannot be over 50 characters"]
+        max: [50, "Notes cannot be over 50 characters"]
     }
 }, {timestamps: true})
 

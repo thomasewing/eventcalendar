@@ -60,6 +60,7 @@
 }
 .btn-animation:hover span {
   padding-right: 25px;
+  cursor: pointer;
 }
 .btn-animation:hover span:after {
   opacity: 1;
@@ -126,7 +127,7 @@ header {
   box-shadow: 4px 4px 8px 4px rgb(40, 30, 77);
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: rgb(255, 208, 121);
 }
 button {
   border: none;
@@ -188,30 +189,46 @@ button {
   color: chartreuse;
   box-shadow: 2px 2px 8px 2px black;
   transition: 0.5s;
+  cursor: pointer;
 }
-.chooseDifferentHolidayLink {
+.backLink {
   text-decoration: underline;
   color: rebeccapurple;
   transition: 0.5s;
   padding: 10px;
 }
-.chooseDifferentHolidayLink:hover {
+.backLink:hover {
   cursor: pointer;
   color: rgb(148, 71, 225);
 }
 
 /* Form Styling */
-.form-title {
-  font-size: xx-large;
+h1 {
   color: white;
+  margin-bottom: 20px;
 }
 .form-container {
   padding: 40px;
-  margin: 20% auto;
+  margin: 80px auto;
   background-color: rgba(0, 166, 0, 0.8);
   width: 40%;
   border-radius: 10px;
   box-shadow: 4px 4px 8px 8px black;
+}
+.form-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  border-bottom: 1px solid black;
+  padding: 4px 0px;
+  font-size: large;
+}
+.form-section label {
+  color: white;
+}
+.form-section input {
+  border-radius: 6px;
+  padding: 6px;
 }
 .submit-btn {
   margin-top: 40px;
@@ -222,4 +239,42 @@ button {
   cursor: pointer;
   background-color: purple;
   transform: translateY(-4px);
+}
+
+/* DETAILS STYLING */
+.event-details-container {
+  background-color: rgba(50, 5, 94, 0.88);
+  padding: 20px;
+  width: 40%;
+  margin: 20px auto;
+  border-radius: 14px;
+}
+.event-details-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+}
+.edit-btn-2 {
+  margin-top: 20px;
+  background-color: rgb(4, 87, 4, .6);
+  box-shadow: 2px 2px 4px 1px black;
+}
+.edit-btn-2:hover {
+  cursor: pointer;
+  font-size: larger;
+  background-color: rgb(4, 87, 4, .9);
+}
+.delete-btn-2 {
+  background-color: rgba(255, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px 1px black;
+}
+.delete-btn-2:hover {
+  cursor: pointer;
+  font-size: larger;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.error-message {
+  color: red;
 }

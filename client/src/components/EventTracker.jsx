@@ -35,7 +35,7 @@ return (
             <button className="welcome-page-btn btn-animation" type="button" onClick={handleNewEvent}>
                 <span>Add Event</span>
             </button>
-            <br /><a className="chooseDifferentHolidayLink" onClick={handleWelcomePage}>Choose a Different Holiday</a>
+            <br /><a className="backLink" onClick={handleWelcomePage}>Choose a Different Holiday</a>
         </div>
     </div>
 );

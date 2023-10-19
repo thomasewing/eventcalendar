@@ -13,8 +13,6 @@ export default function NewEvent() {
     const [ category, setCategory ] = useState("");
     const [ rating, setRating ] = useState(0);
     const [ errors, setErrors ] = useState([]);
-    
-
 
     const submitHandler = e => {
         e.preventDefault();
@@ -25,10 +23,9 @@ export default function NewEvent() {
                 navigate(`/eventtracker/${holiday}/eventlist`)
             })
             .catch( err => {
-                // const errorResponse = err.response.data.errors;
-                // console.log(errorResponse);
-                console.log(err);
-                // setErrors(errorResponse);
+                const errorResponse = err.response.data.errors;
+                console.log(errorResponse);
+                setErrors(errorResponse);
             });
     }
     
@@ -36,31 +33,36 @@ export default function NewEvent() {
         <div className='page'>
             <Header holiday={holiday}/>
             <div className='form-container'>
-                <title className='form-title'>Add a New Event</title>
+                <h1 className='form-title'>Add a New Event</h1>
                 <form className="" onSubmit={submitHandler}>
+                    
+                    { Object.keys(errors).map((key) => (
+                        <p key={key} className='error-message'>{ errors[key].message }</p>
+                    )) }
+
                     <div className="">
-                        <div className="">
-                            <label>Event Name</label>
+                        <div className="form-section">
+                            <label>Event Name: </label>
                             <input type="text" name='name' value={name} onChange={ e => setName(e.target.value) } />
                         </div>
 
-                        <div className="">
-                            <label>Address</label>
+                        <div className="form-section">
+                            <label>Address: </label>
                             <input type="text" name='address' value={address} onChange={ e => setAddress(e.target.value) } />
                         </div> 
 
-                        <div className="">
-                            <label>Date</label>
+                        <div className="form-section">
+                            <label>Date: </label>
                             <input type="date" name='date' value={date} onChange={ e => setDate(e.target.value) } />
                         </div>
 
-                        <div className="">
-                            <label>Category</label>
+                        <div className="form-section">
+                            <label>Category: </label>
                             <input type="text" name='category' value={category} onChange={ e => setCategory(e.target.value) } />
                         </div>
 
-                        <div className="">
-                            <label>Rating</label>
+                        <div className="form-section">
+                            <label>Rating: </label>
                             <input type="number" name='rating' value={rating} onChange={ e => setRating(e.target.value) } />
                         </div>
 
