@@ -9,6 +9,16 @@ const Header = ({holiday}) => {
             navigate(`/eventtracker/${holiday}/eventlist`);
         }
     };
+    const handleHomePage = () => {
+        if (holiday) {
+            navigate(`/eventtracker/${holiday}`);
+        }
+    };
+    const handleNewEvent = () => {
+        if (holiday) {
+            navigate(`/eventtracker/${holiday}/newevent`);
+        }
+    };
 
     return (
     <header>
@@ -18,9 +28,9 @@ const Header = ({holiday}) => {
             </div>
             <div className="navbar-right">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
+                    <li><a onClick={handleHomePage}>Home</a></li>
                     <li><a onClick={handleEventList}>Events</a></li>
-                    <li><Link to="/addevent">Add Event</Link></li>
+                    <li><a onClick={handleNewEvent}>Add Event</a></li>
                 </ul>
             </div>
         </div>

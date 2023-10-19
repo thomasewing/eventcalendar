@@ -12,20 +12,30 @@ const EventTracker = (props) => {
             navigate(`/eventtracker/${holiday}/eventlist`);
         }
     };
-
+    const handleNewEvent = () => {
+        if (holiday) {
+            navigate(`/eventtracker/${holiday}/newevent`);
+        }
+    };
+    const handleWelcomePage = () => {
+        if (holiday) {
+            navigate(`/`);
+        }
+    };
 
 return (
     <div className='page'>
         <Header holiday={holiday}/>
         <div className='welcome-page'>
             <h3>Welcome to...</h3>
-            <h1> {holiday.toUpperCase()} EVENT TRACKER</h1>
-                <button type="button" onClick={handleEventList}>
-                    View All Events
-                </button>
-                <button type="button">
-                    Add Event
-                </button>
+            <h1 className='title'> {holiday.toUpperCase()} EVENT TRACKER</h1>
+            <button className="welcome-page-btn btn-animation" type="button" onClick={handleEventList}>
+                <span>View All Events</span>
+            </button>
+            <button className="welcome-page-btn btn-animation" type="button" onClick={handleNewEvent}>
+                <span>Add Event</span>
+            </button>
+            <br /><a className="chooseDifferentHolidayLink" onClick={handleWelcomePage}>Choose a Different Holiday</a>
         </div>
     </div>
 );

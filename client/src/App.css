@@ -1,18 +1,32 @@
 #root {
   margin: 0 auto;
   text-align: center;
+  background-color: black;
 }
 .page {
   background-image: url("../src/assets/halloweenbackground1.jpeg");
   background-size: cover;
+  min-width: 100vh;
   min-height: 100vh;
 }
 
 /* Home Page Styling */
 .home-page-container {
-  height: 100vh;
+  min-height: 100vh;
   background-image: linear-gradient(darkslategrey,white, darkslategrey);
   
+}
+.home-page-title {
+  font-size: 4ch;
+  margin-bottom: 20px;
+}
+.holiday-select {
+  font-size: x-large;
+}
+.select {
+  margin-left: 10px;
+  padding: 4px;
+  font-size: large;
 }
 .home-page-content {
   margin: 0 auto;
@@ -24,18 +38,19 @@
 }
 .home-page-btn {
   background-color: lightblue;
-  margin-top: 20px;
+  font-size: large;
+  margin-top: 40px;
   padding: 10px 20px;
   transition: all 0.5s;
   box-shadow: 2px 2px 4px black;
 }
-.home-page-btn span {
+.btn-animation span {
   transition: 0.5s;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
-.home-page-btn span:after {
+.btn-animation span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -43,10 +58,10 @@
   right: -20px;
   transition: 0.5s;
 }
-.home-page-btn:hover span {
+.btn-animation:hover span {
   padding-right: 25px;
 }
-.home-page-btn:hover span:after {
+.btn-animation:hover span:after {
   opacity: 1;
   right: 0;
 }
@@ -57,6 +72,7 @@ header {
   background-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.7));
   color: #fff;
   padding: 20px 40px;
+
 }
 .navbar {
   width: 100%;
@@ -64,6 +80,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  position: inherit;
 }
 .navbar h1 {
   font-size: 24px;
@@ -90,18 +107,13 @@ header {
 
 /* Event List Styling */
 .event-list-container {
-  display: flex;
-}
-.event-list-photo {
-  flex: 1;
-  text-align: center;
-}
-.event-list-photo img {
-  max-width: 100%;
-  max-height: 100%;
+  background-color: rgba(71, 61, 139, 0.8);
+  padding: 20px;
+  width: 40%;
+  margin: 20px auto;
+  border-radius: 14px;
 }
 .event-list-details {
-  flex: 2;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -110,24 +122,99 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px 4px rgb(40, 30, 77);
+  padding: 20px;
+  margin-bottom: 20px;
   background-color: #f0f0f0;
 }
 button {
   border: none;
   padding: 5px 10px;
+  transition: 0.4s;
+  font-size: large;
+}
+.details-btn {
+  background-color: rgba(0, 128, 0, 0.2);
+  box-shadow: 2px 2px 2px 1px grey;
+}
+.details-btn:hover {
   cursor: pointer;
+  font-size: larger;
+  background-color: rgba(0, 128, 0, 0.3);
+}
+.delete-btn {
+  background-color: rgba(255, 0, 0, 0.2);
+  box-shadow: 2px 2px 2px 1px grey;
+}
+.delete-btn:hover {
+  cursor: pointer;
+  font-size: larger;
+  background-color: rgba(255, 0, 0, 0.3);
 }
 
 /* Welcome Page Styling */
 .welcome-page {
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
   vertical-align: center;
-  padding: 100px;
+  padding: 72px;
+  padding-bottom: 48px;
   border-radius: 30px;
   top: 50%;
   transform: translateY(50%);
-  box-shadow: inset 0 0 20px 10px black;
-  background-color: rgba(255, 140, 0, 0.954);
+  box-shadow: inset 0 0 20px 4px black;
+  background-image: linear-gradient(white, orange, yellow);
+}
+.title {
+  font-size: 4ch;
+}
+.welcome-page-btn {
+  margin: 20px 32px 40px 32px;
+  padding: 20px;
+  font-size: large;
+  background-image: linear-gradient(rgb(120, 30, 168), rgb(65, 11, 65));
+  color: lightgreen;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.427);
+  transition: 0.5s;
+}
+.welcome-page-btn:hover {
+  color: chartreuse;
+  box-shadow: 2px 2px 8px 2px black;
+  transition: 0.5s;
+}
+.chooseDifferentHolidayLink {
+  text-decoration: underline;
+  color: rebeccapurple;
+  transition: 0.5s;
+  padding: 10px;
+}
+.chooseDifferentHolidayLink:hover {
+  cursor: pointer;
+  color: rgb(148, 71, 225);
+}
+
+/* Form Styling */
+.form-title {
+  font-size: xx-large;
+  color: white;
+}
+.form-container {
+  padding: 40px;
+  margin: 20% auto;
+  background-color: rgba(0, 166, 0, 0.8);
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 8px black;
+}
+.submit-btn {
+  margin-top: 40px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.484);
+  background-color: rgb(128, 17, 128);
+}
+.submit-btn:hover {
+  cursor: pointer;
+  background-color: purple;
+  transform: translateY(-4px);
 }
