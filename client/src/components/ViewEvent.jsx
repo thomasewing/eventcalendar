@@ -24,6 +24,19 @@ const ViewEvent = () => {
         return <div>Event not found</div>;
     }
 
+    const deleteHandler = (id) => {
+        axios
+            .delete( `http://localhost:8000/eventcalendar/${id}` )
+            .then( res => {
+                console.log(res);
+                setEvents(events.filter(event => event._id !== id));
+            })
+            .catch( err => console.log(err) )
+    }
+    const eventEditHandler = (id) => {  
+        navigate(`/eventtracker/${holiday}/updateevent/${id}`);
+    }
+
     return (
         <div className='page'>
             <Header holiday={holiday} />
@@ -35,6 +48,8 @@ const ViewEvent = () => {
                     <p>Date: {event.date}</p>
                     <p>Category: {event.category}</p>
                     <p>Rating: {event.rating}</p>
+                    <button className='edit-btn' onClick={ () => eventEditHandler(event._id)}>Edit</button>
+                    <button className='delete-btn' onClick={ () => deleteHandler(event._id)}>Delete</button>
                 </div>
             </div>
         </div>
